@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A77800B1B610ACF00EB5C26 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */; };
 		6AF8E1EA1B58D32500704778 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1E91B58D32500704778 /* main.m */; };
 		6AF8E1ED1B58D32500704778 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1EC1B58D32500704778 /* AppDelegate.m */; };
 		6AF8E1F01B58D32500704778 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1EF1B58D32500704778 /* ViewController.m */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		6AF8E1E41B58D32500704778 /* HomeKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF8E1E81B58D32500704778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AF8E1E91B58D32500704778 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A77800B1B610ACF00EB5C26 /* ExternalAccessory.framework in Frameworks */,
 				6AF8E20E1B58D44B00704778 /* HomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +70,7 @@
 		6AF8E1DB1B58D32500704778 = {
 			isa = PBXGroup;
 			children = (
+				6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */,
 				6AF8E20D1B58D44A00704778 /* HomeKit.framework */,
 				6AF8E1E61B58D32500704778 /* HomeKitDemo */,
 				6AF8E2001B58D32500704778 /* HomeKitDemoTests */,
@@ -174,8 +178,12 @@
 				TargetAttributes = {
 					6AF8E1E31B58D32500704778 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = Z4MM3FTWK5;
 						SystemCapabilities = {
 							com.apple.HomeKit = {
+								enabled = 1;
+							};
+							com.apple.WAC = {
 								enabled = 1;
 							};
 						};
