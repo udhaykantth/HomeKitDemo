@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#define PRINT_CONSOLE_LOG NSLog(@"[%@ %@]",[self class],NSStringFromSelector(_cmd));
+
 
 @interface ViewController ()
 
@@ -26,6 +28,7 @@
     return  [NSString stringWithFormat:@"Home/%d",(arc4random_uniform(UINT32_MAX))];
 }
 - (IBAction)DiscoverAccessories:(id)sender {
+    PRINT_CONSOLE_LOG
     if (self.accessoryBrowser == nil) {
         self.accessoryBrowser = [[HMAccessoryBrowser alloc] init];
         [self.accessoryBrowser setDelegate:self];
@@ -40,7 +43,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.homeManager = [[HMHomeManager alloc]init];
     [self.homeManager setDelegate:self];
-    self.roomName =@"Lobby";
+    //self.roomName =@"Lobby";
 }
 -(void)viewDidDisappear:(BOOL)animated
 
@@ -53,12 +56,14 @@
     // Dispose of any resources that can be recreated.
 }
 -(void) findCharacteristicsOfService:(HMService*)service {
+     PRINT_CONSOLE_LOG
     for (HMCharacteristic* characteristic in service.characteristics ) {
         NSLog(@"characteristic type = %@",characteristic.characteristicType);
     }
     
 }
 -(void) findServicesForAccessory:(HMAccessory*) accessory {
+    PRINT_CONSOLE_LOG
     NSLog(@"Finding services for this accessory...");
     
     for (HMService* service in accessory.services)
@@ -75,7 +80,8 @@
     
 #pragma mark-- HMHomeManagerDelegate
 - (void)homeManagerDidUpdateHomes:(HMHomeManager *)manager {
-     __weak typeof(self) weakSelf = self;
+      PRINT_CONSOLE_LOG
+    __weak typeof(self) weakSelf = self;
     
     [self.homeManager addHomeWithName:@"myHome" completionHandler:^(HMHome *home, NSError *error)  {
        
@@ -104,11 +110,27 @@
     }];
 
     
+} 
+
+
+- (void)homeManagerDidUpdatePrimaryHome:(HMHomeManager *)manager {
+PRINT_CONSOLE_LOG
 }
+
+- (void)homeManager:(HMHomeManager *)manager didAddHome:(HMHome *)home {
+PRINT_CONSOLE_LOG
+}
+
+
+- (void)homeManager:(HMHomeManager *)manager didRemoveHome:(HMHome *)home {
+PRINT_CONSOLE_LOG
+    
+}
+
 
 #pragma mark - HMAccessoryBrowserDelegate
 -(void)accessoryBrowser:(HMAccessoryBrowser *)browser didFindNewAccessory:(HMAccessory *)accessory
-{
+{ PRINT_CONSOLE_LOG
     __weak typeof(self) weakSelf = self;
 
     NSLog(@"Found a new accessory");
@@ -140,7 +162,7 @@
 
 }
 -(void)accessoryBrowser:(HMAccessoryBrowser *)browser didRemoveNewAccessory:(HMAccessory *)accessory
-{
+{ PRINT_CONSOLE_LOG
     NSLog(@"An accessory has been removed");
 
 }
