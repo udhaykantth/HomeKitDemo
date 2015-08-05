@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <HomeKit/HomeKit.h>
 
-@interface ViewController : UIViewController<HMAccessoryBrowserDelegate,HMHomeManagerDelegate>
+@interface ViewController : UIViewController
 
 
 @end

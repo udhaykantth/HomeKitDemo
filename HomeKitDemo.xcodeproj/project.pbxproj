@@ -16,6 +16,8 @@
 		6AF8E1F81B58D32500704778 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF8E1F61B58D32500704778 /* LaunchScreen.xib */; };
 		6AF8E2041B58D32500704778 /* HomeKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E2031B58D32500704778 /* HomeKitDemoTests.m */; };
 		6AF8E20E1B58D44B00704778 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF8E20D1B58D44A00704778 /* HomeKit.framework */; };
+		6AFFBC101B71ED9900DD7BE9 /* HomeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFFBC0F1B71ED9900DD7BE9 /* HomeListTableViewController.m */; };
+		6AFFBC131B71EDBF00DD7BE9 /* AddHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFFBC121B71EDBF00DD7BE9 /* AddHomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,11 @@
 		6AF8E2031B58D32500704778 /* HomeKitDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeKitDemoTests.m; sourceTree = "<group>"; };
 		6AF8E20D1B58D44A00704778 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		6AF8E20F1B58D44B00704778 /* HomeKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeKitDemo.entitlements; sourceTree = "<group>"; };
+		6AFFBC0E1B71ED9900DD7BE9 /* HomeListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListTableViewController.h; sourceTree = "<group>"; };
+		6AFFBC0F1B71ED9900DD7BE9 /* HomeListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListTableViewController.m; sourceTree = "<group>"; };
+		6AFFBC111B71EDBF00DD7BE9 /* AddHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddHomeViewController.h; sourceTree = "<group>"; };
+		6AFFBC121B71EDBF00DD7BE9 /* AddHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddHomeViewController.m; sourceTree = "<group>"; };
+		6AFFBC151B72004400DD7BE9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +77,9 @@
 		6AF8E1DB1B58D32500704778 = {
 			isa = PBXGroup;
 			children = (
+				6AFFBC161B7227B600DD7BE9 /* Home Modal */,
+				6AFFBC141B72002D00DD7BE9 /* Constants */,
+				6AFFBC0A1B71ECE500DD7BE9 /* View Controller */,
 				6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */,
 				6AF8E20D1B58D44A00704778 /* HomeKit.framework */,
 				6AF8E1E61B58D32500704778 /* HomeKitDemo */,
@@ -127,6 +137,32 @@
 				6AF8E2021B58D32500704778 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6AFFBC0A1B71ECE500DD7BE9 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6AFFBC0E1B71ED9900DD7BE9 /* HomeListTableViewController.h */,
+				6AFFBC0F1B71ED9900DD7BE9 /* HomeListTableViewController.m */,
+				6AFFBC111B71EDBF00DD7BE9 /* AddHomeViewController.h */,
+				6AFFBC121B71EDBF00DD7BE9 /* AddHomeViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		6AFFBC141B72002D00DD7BE9 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6AFFBC151B72004400DD7BE9 /* Constants.h */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		6AFFBC161B7227B600DD7BE9 /* Home Modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Home Modal";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +277,8 @@
 				6AF8E1F01B58D32500704778 /* ViewController.m in Sources */,
 				6AF8E1ED1B58D32500704778 /* AppDelegate.m in Sources */,
 				6AF8E1EA1B58D32500704778 /* main.m in Sources */,
+				6AFFBC131B71EDBF00DD7BE9 /* AddHomeViewController.m in Sources */,
+				6AFFBC101B71ED9900DD7BE9 /* HomeListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

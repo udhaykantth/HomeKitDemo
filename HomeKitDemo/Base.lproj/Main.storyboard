@@ -7,27 +7,15 @@
         <!--HomeViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" userLabel="HomeViewController" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="coM-wA-nhu">
-                                <rect key="frame" x="42" y="36" width="237" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Discover Accessories">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="DiscoverAccessories:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kgz-lw-501"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="BlankHome" id="bxn-yf-kfn"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="642" y="80"/>
         </scene>
@@ -53,17 +41,17 @@
         <!--HomeListViewController-->
         <scene sceneID="Ydb-4G-wLa">
             <objects>
-                <tableViewController id="HPk-Rz-36F" userLabel="HomeListViewController" sceneMemberID="viewController">
+                <tableViewController id="HPk-Rz-36F" userLabel="HomeListViewController" customClass="HomeListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xSW-wC-kiE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XBs-uS-baQ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HomeList" id="XBs-uS-baQ">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XBs-uS-baQ" id="Q27-iH-wNX">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -73,10 +61,10 @@
                             <outlet property="delegate" destination="HPk-Rz-36F" id="s6e-ed-cgH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="nhU-OM-ODv">
+                    <navigationItem key="navigationItem" title="My Homes" id="nhU-OM-ODv">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ikH-CQ-tWS">
                             <connections>
-                                <segue destination="Ubh-aS-dot" kind="modal" id="AUf-ua-qse"/>
+                                <segue destination="Ubh-aS-dot" kind="modal" identifier="AddHome" id="AUf-ua-qse"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -107,17 +95,48 @@
         <!--AddHomeViewController-->
         <scene sceneID="wbo-Tr-LI0">
             <objects>
-                <viewController title="Add Home" id="Ubh-aS-dot" userLabel="AddHomeViewController" sceneMemberID="viewController">
+                <viewController title="Add Home" id="Ubh-aS-dot" userLabel="AddHomeViewController" customClass="AddHomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CVL-ve-Iqo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="4a8-j1-JFN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Add Home" id="gAt-Hg-zBx">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0Je-l8-Mw3">
+                                            <connections>
+                                                <action selector="cancel:" destination="Ubh-aS-dot" id="Pel-03-3Fl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="IDv-5b-MB8">
+                                            <connections>
+                                                <action selector="done:" destination="Ubh-aS-dot" id="r0M-aC-A5Q"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter New Home" minimumFontSize="17" id="EtJ-aa-xZ1">
+                                <rect key="frame" x="52" y="96" width="216" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="zuC-M3-iMb"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="homeNameTxtField" destination="EtJ-aa-xZ1" id="wZO-qQ-tLl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7WD-1X-KkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1349" y="854"/>
+            <point key="canvasLocation" x="1282" y="854"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
