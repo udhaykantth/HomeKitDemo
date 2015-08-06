@@ -64,7 +64,7 @@
                     <navigationItem key="navigationItem" title="My Homes" id="nhU-OM-ODv">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ikH-CQ-tWS">
                             <connections>
-                                <segue destination="Ubh-aS-dot" kind="modal" identifier="AddHome" id="AUf-ua-qse"/>
+                                <action selector="addHome:" destination="HPk-Rz-36F" id="Sjc-DD-eEb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

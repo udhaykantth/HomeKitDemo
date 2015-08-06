@@ -24,6 +24,10 @@
 -(NSString*) randomHomeName {
     return  [NSString stringWithFormat:@"Home/%d",(arc4random_uniform(UINT32_MAX))];
 } 
+- (IBAction)addHome:(id)sender {
+    PRINT_CONSOLE_LOG(nil)
+    [self showAlert];
+}
 
 #pragma mark - viewController Methods
 - (void)viewDidLoad {
@@ -158,20 +162,51 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
-
+/*
 #pragma mark segue Methods
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:ADD_HOME]) {
         PRINT_CONSOLE_LOG(nil)
+      
 
-        AddHomeViewController* addHomeViewController = (AddHomeViewController*) segue.destinationViewController;
+      
+       AddHomeViewController* addHomeViewController = (AddHomeViewController*) segue.destinationViewController;
         [addHomeViewController setDelegate:self];
         [addHomeViewController setHomeManager:self.homeManager];
+ 
         
     }
 }
-
+*/
+-(void)showAlert
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:NSLocalizedString(@"New %@", @"New item")]
+                                                                             message:NSLocalizedString(@"Enter a name.", @"Enter a name.")
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Apartment ";
+        textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    NSString *addString = [NSString stringWithFormat:@"%@", NSLocalizedString(@"Add", @"Add")];
+    
+    UIAlertAction *addNewObject = [UIAlertAction actionWithTitle:addString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSString *newName = [alertController.textFields.firstObject text];
+        NSString *trimmedName = [newName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        
+    }];
+    
+    [alertController addAction:cancel];
+    [alertController addAction:addNewObject];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 -(void) findCharacteristicsOfService:(HMService*)service {
     PRINT_CONSOLE_LOG(nil)
     for (HMCharacteristic* characteristic in service.characteristics ) {
