@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A77800B1B610ACF00EB5C26 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */; };
+		6A9B56A71B733279007B6F4E /* HomeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9B56A61B733279007B6F4E /* HomeStore.m */; };
 		6AF8E1EA1B58D32500704778 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1E91B58D32500704778 /* main.m */; };
 		6AF8E1ED1B58D32500704778 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1EC1B58D32500704778 /* AppDelegate.m */; };
 		6AF8E1F01B58D32500704778 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1EF1B58D32500704778 /* ViewController.m */; };
@@ -32,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		6A9B56A51B733279007B6F4E /* HomeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeStore.h; sourceTree = "<group>"; };
+		6A9B56A61B733279007B6F4E /* HomeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeStore.m; sourceTree = "<group>"; };
 		6AF8E1E41B58D32500704778 /* HomeKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF8E1E81B58D32500704778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AF8E1E91B58D32500704778 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 		6AFFBC161B7227B600DD7BE9 /* Home Modal */ = {
 			isa = PBXGroup;
 			children = (
+				6A9B56A51B733279007B6F4E /* HomeStore.h */,
+				6A9B56A61B733279007B6F4E /* HomeStore.m */,
 			);
 			name = "Home Modal";
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				6AF8E1ED1B58D32500704778 /* AppDelegate.m in Sources */,
 				6AF8E1EA1B58D32500704778 /* main.m in Sources */,
 				6AFFBC131B71EDBF00DD7BE9 /* AddHomeViewController.m in Sources */,
+				6A9B56A71B733279007B6F4E /* HomeStore.m in Sources */,
 				6AFFBC101B71ED9900DD7BE9 /* HomeListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,6 +25,7 @@
     return  [NSString stringWithFormat:@"Home/%d",(arc4random_uniform(UINT32_MAX))];
 } 
 
+#pragma mark - viewController Methods
 - (void)viewDidLoad {
     PRINT_CONSOLE_LOG(nil)
     [super viewDidLoad];
@@ -55,7 +56,23 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self registerForHomeChangeNotifications];
+}
 
+- (void)dealloc {
+    [self unregisterForHomeChangeNotifications];
+}
+-(void)registerForHomeChangeNotifications {
+    /*[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(homeStoreDidUpdateSharedHome)
+                                                 name:HomeStoreDidChangeSharedHomeNotification
+                                               object:[HomeStore sharedStore]];
+     */
+}
+-(void)unregisterForHomeChangeNotifications {
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -245,7 +262,7 @@
     [self.tableView reloadData];
 }
 -(void)addNewHome:(NSString*)homeName {
-//    __weak typeof(self) weakSelf = self;
+   __weak typeof(self) weakSelf = self;
     
     
     [self.homeManager addHomeWithName:homeName completionHandler:^(HMHome *home, NSError *error)  {
@@ -254,7 +271,8 @@
             NSLog(@"Could not find the home");
             return ;
         }
-        
+        [weakSelf refreshTable];
+
          NSLog(@"successfully found home");
         /*
         [weakSelf.home addRoomWithName:weakSelf.roomName completionHandler:^(HMRoom *room, NSError *error) {
