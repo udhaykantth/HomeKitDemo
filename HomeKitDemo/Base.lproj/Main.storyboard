@@ -62,6 +62,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Homes" id="nhU-OM-ODv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="gW6-op-O32"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ikH-CQ-tWS">
                             <connections>
                                 <action selector="addHome:" destination="HPk-Rz-36F" id="Sjc-DD-eEb"/>

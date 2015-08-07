@@ -28,6 +28,14 @@
     PRINT_CONSOLE_LOG(nil)
     [self showAlert];
 }
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated { // Updates the appearance of the Edit|Done button item as necessary. Clients who override it must call super first.
+    NSString *msg = [NSString stringWithFormat:@"%d",editing];
+    PRINT_CONSOLE_LOG(msg);
+    [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:YES];
+    self.navigationItem.rightBarButtonItem.enabled = !editing;
+
+}
 
 #pragma mark - viewController Methods
 - (void)viewDidLoad {
@@ -41,6 +49,10 @@
         [self.accessoryBrowser setDelegate:self];
         
     }
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    NSInteger homesCount = [[self.homeManager homes]count];
+    self.navigationItem.leftBarButtonItem.enabled = !(homesCount == 0);
+
     //self.roomName =@"Lobby";
     
     // Uncomment the following line to preserve selection between presentations.
@@ -87,7 +99,21 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     NSLog(@"homes count:%lu",(unsigned long)[self.homeManager.homes count]);
-    return [self.homeManager.homes count];
+    NSInteger noOfHomes = [self.homeManager.homes count];
+    self.navigationItem.leftBarButtonItem.enabled = (noOfHomes > 0);
+
+    if (noOfHomes == 0 && self.editing) {
+        [self.tableView setEditing:!self.editing animated:YES];
+        self.editButtonItem.enabled = (noOfHomes > 0);
+        self.navigationItem.rightBarButtonItem.enabled =!(noOfHomes > 0);
+        if (noOfHomes == 0) {
+            self.navigationItem.leftBarButtonItem = self.editButtonItem;
+            self.navigationItem.leftBarButtonItem.enabled = NO;
+        }
+        
+    }
+
+    return noOfHomes;
 }
 
 
@@ -102,25 +128,38 @@
 }
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
+    PRINT_CONSOLE_LOG(nil)
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    PRINT_CONSOLE_LOG(nil)
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        HMHome *deletingHome = self.homeManager.homes[indexPath.row];
+        [self.homeManager removeHome:deletingHome completionHandler:^(NSError *error) {
+            if (error != nil) {
+                PRINT_CONSOLE_LOG(@"error in deleting home")
+                //TODO: Show alert here.
+            }
+            else
+            {
+                // Delete the row from the data source
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                
+            }
+        }];
+         } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -145,13 +184,12 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+/*
 #pragma mark - AddHomeViewControllerDelegate
 -(void)addHomeViewControllerDidSave:(AddHomeViewController *)controller
 {
     PRINT_CONSOLE_LOG(nil)
     NSLog(@"newly added home:%@",controller.homeText);
-    [self addNewHome:controller.homeText];
 
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -162,6 +200,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
+ */
 /*
 #pragma mark segue Methods
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -181,27 +220,33 @@
 */
 -(void)showAlert
 {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:NSLocalizedString(@"New %@", @"New item")]
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Add Home",nil)]
                                                                              message:NSLocalizedString(@"Enter a name.", @"Enter a name.")
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"Apartment ";
+        textField.placeholder = @"Home name ";
         textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
     }];
     
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSLog(@"cancel tapped");
         [alertController dismissViewControllerAnimated:YES completion:nil];
     }];
     
-    NSString *addString = [NSString stringWithFormat:@"%@", NSLocalizedString(@"Add", @"Add")];
+    NSString *addString = [NSString stringWithFormat:@"%@", NSLocalizedString(@"Add",nil)];
     
     UIAlertAction *addNewObject = [UIAlertAction actionWithTitle:addString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"added..");
         NSString *newName = [alertController.textFields.firstObject text];
         NSString *trimmedName = [newName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        
-        
-    }];
+        NSLog(@"added string is:%@",trimmedName);
+        if ([trimmedName length]>0) {
+            [self addNewHome:trimmedName];
+            [self refreshTable];
+        }
+        NSLog(@"added string :%@",[trimmedName length] > 0? trimmedName:@"Could not add");
+ }];
     
     [alertController addAction:cancel];
     [alertController addAction:addNewObject];
