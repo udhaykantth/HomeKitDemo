@@ -98,19 +98,25 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    NSLog(@"homes count:%lu",(unsigned long)[self.homeManager.homes count]);
+    NSLog(@"homes count:%lu, editing :%d",(unsigned long)[self.homeManager.homes count],self.editing);
     NSInteger noOfHomes = [self.homeManager.homes count];
     self.navigationItem.leftBarButtonItem.enabled = (noOfHomes > 0);
+    self.editButtonItem.enabled = (noOfHomes > 0);
+
 
     if (noOfHomes == 0 && self.editing) {
         [self.tableView setEditing:!self.editing animated:YES];
-        self.editButtonItem.enabled = (noOfHomes > 0);
         self.navigationItem.rightBarButtonItem.enabled =!(noOfHomes > 0);
-        if (noOfHomes == 0) {
-            self.navigationItem.leftBarButtonItem = self.editButtonItem;
-            self.navigationItem.leftBarButtonItem.enabled = NO;
-        }
+//        if (noOfHomes == 0) {
+//            self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//            self.navigationItem.leftBarButtonItem.enabled = NO;
+//        }
         
+    }
+    if (noOfHomes == 0) {
+        [self.tableView setEditing:NO animated:YES];
+        [self setEditing:NO animated:YES];
+
     }
 
     return noOfHomes;

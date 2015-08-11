@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6A77800B1B610ACF00EB5C26 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */; };
 		6A9B56A71B733279007B6F4E /* HomeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9B56A61B733279007B6F4E /* HomeStore.m */; };
+		6AC143021B7A1D5200C448B7 /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC143011B7A1D5200C448B7 /* RoomListViewController.m */; };
 		6AF8E1EA1B58D32500704778 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1E91B58D32500704778 /* main.m */; };
 		6AF8E1ED1B58D32500704778 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1EC1B58D32500704778 /* AppDelegate.m */; };
 		6AF8E1F01B58D32500704778 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1EF1B58D32500704778 /* ViewController.m */; };
@@ -35,6 +36,8 @@
 		6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		6A9B56A51B733279007B6F4E /* HomeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeStore.h; sourceTree = "<group>"; };
 		6A9B56A61B733279007B6F4E /* HomeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeStore.m; sourceTree = "<group>"; };
+		6AC143001B7A1D5200C448B7 /* RoomListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListViewController.h; sourceTree = "<group>"; };
+		6AC143011B7A1D5200C448B7 /* RoomListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListViewController.m; sourceTree = "<group>"; };
 		6AF8E1E41B58D32500704778 /* HomeKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF8E1E81B58D32500704778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AF8E1E91B58D32500704778 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				6AFFBC0F1B71ED9900DD7BE9 /* HomeListTableViewController.m */,
 				6AFFBC111B71EDBF00DD7BE9 /* AddHomeViewController.h */,
 				6AFFBC121B71EDBF00DD7BE9 /* AddHomeViewController.m */,
+				6AC143001B7A1D5200C448B7 /* RoomListViewController.h */,
+				6AC143011B7A1D5200C448B7 /* RoomListViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AF8E1F01B58D32500704778 /* ViewController.m in Sources */,
+				6AC143021B7A1D5200C448B7 /* RoomListViewController.m in Sources */,
 				6AF8E1ED1B58D32500704778 /* AppDelegate.m in Sources */,
 				6AF8E1EA1B58D32500704778 /* main.m in Sources */,
 				6AFFBC131B71EDBF00DD7BE9 /* AddHomeViewController.m in Sources */,
