@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <HomeKit/HomeKit.h>
 
-@interface RoomListViewController : UITableViewController
+@interface RoomListViewController : UITableViewController<HMHomeDelegate>
+@property(nonatomic,strong)HMHome *home;
+@property(nonatomic,strong)HMHomeManager *homeManager;
 
 @end

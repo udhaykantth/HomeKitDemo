@@ -8,6 +8,7 @@
 
 #import "HomeListTableViewController.h"
 #import "Constants.h"
+#import "RoomListViewController.h"
 
  
 @interface HomeListTableViewController ()
@@ -181,15 +182,10 @@
 }
 */
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+
+
 /*
 #pragma mark - AddHomeViewControllerDelegate
 -(void)addHomeViewControllerDidSave:(AddHomeViewController *)controller
@@ -207,23 +203,23 @@
 
 }
  */
-/*
-#pragma mark segue Methods
+
+#pragma mark segue Methods for Navigation
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:ADD_HOME]) {
+    if ([segue.identifier isEqualToString:ROOM_LIST]) {
         PRINT_CONSOLE_LOG(nil)
-      
+        RoomListViewController *roomListViewController = (RoomListViewController*)segue.destinationViewController;
+        [roomListViewController setHomeManager:self.homeManager];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        HMHome *home = self.homeManager.homes[indexPath.row];
+        PRINT_CONSOLE_LOG(home.name)
 
-      
-       AddHomeViewController* addHomeViewController = (AddHomeViewController*) segue.destinationViewController;
-        [addHomeViewController setDelegate:self];
-        [addHomeViewController setHomeManager:self.homeManager];
- 
-        
+        [roomListViewController setHome:self.homeManager.homes[indexPath.row]];
     }
 }
-*/
+
 -(void)showAlert
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Add Home",nil)]

@@ -14,6 +14,7 @@
 
 //AddHomeViewController Constants
 #define ADD_HOME @"AddHome"
+#define ROOM_LIST @"RoomList"
 
 //Print Logs
 #ifdef DEBUG
