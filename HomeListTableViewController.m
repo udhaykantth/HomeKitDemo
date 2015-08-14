@@ -10,7 +10,7 @@
 #import "Constants.h"
 #import "RoomListViewController.h"
 
- 
+
 @interface HomeListTableViewController ()
 @property (nonatomic,strong) HMHome *home;
 @property (nonatomic,strong) HMRoom *room;
@@ -21,10 +21,16 @@
 -(NSString*) randomHomeName;
 @end
 
+typedef NS_ENUM(NSUInteger, HomeListSection) {
+    HomeListSectionHomes = 0,
+    HomeListSectionAddAccessory
+    
+};
+
 @implementation HomeListTableViewController
 -(NSString*) randomHomeName {
     return  [NSString stringWithFormat:@"Home/%d",(arc4random_uniform(UINT32_MAX))];
-} 
+}
 - (IBAction)addHome:(id)sender {
     PRINT_CONSOLE_LOG(nil)
     [self showAlert];
@@ -35,7 +41,7 @@
     [super setEditing:editing animated:animated];
     [self.tableView setEditing:editing animated:YES];
     self.navigationItem.rightBarButtonItem.enabled = !editing;
-
+    
 }
 
 #pragma mark - viewController Methods
@@ -53,7 +59,7 @@
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     NSInteger homesCount = [[self.homeManager homes]count];
     self.navigationItem.leftBarButtonItem.enabled = !(homesCount == 0);
-
+    
     //self.roomName =@"Lobby";
     
     // Uncomment the following line to preserve selection between presentations.
@@ -83,9 +89,9 @@
 }
 -(void)registerForHomeChangeNotifications {
     /*[[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(homeStoreDidUpdateSharedHome)
-                                                 name:HomeStoreDidChangeSharedHomeNotification
-                                               object:[HomeStore sharedStore]];
+     selector:@selector(homeStoreDidUpdateSharedHome)
+     name:HomeStoreDidChangeSharedHomeNotification
+     object:[HomeStore sharedStore]];
      */
 }
 -(void)unregisterForHomeChangeNotifications {
@@ -93,43 +99,78 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-     // Return the number of sections.
-    return 1;
+    // Return the number of sections.
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     NSLog(@"homes count:%lu, editing :%d",(unsigned long)[self.homeManager.homes count],self.editing);
+    
     NSInteger noOfHomes = [self.homeManager.homes count];
-    self.navigationItem.leftBarButtonItem.enabled = (noOfHomes > 0);
-    self.editButtonItem.enabled = (noOfHomes > 0);
-
-
-    if (noOfHomes == 0 && self.editing) {
-        [self.tableView setEditing:!self.editing animated:YES];
-        self.navigationItem.rightBarButtonItem.enabled =!(noOfHomes > 0);
-//        if (noOfHomes == 0) {
-//            self.navigationItem.leftBarButtonItem = self.editButtonItem;
-//            self.navigationItem.leftBarButtonItem.enabled = NO;
-//        }
-        
+    switch (section) {
+        case HomeListSectionHomes:
+        {
+            self.navigationItem.leftBarButtonItem.enabled = (noOfHomes > 0);
+            self.editButtonItem.enabled = (noOfHomes > 0);
+            
+            
+            if (noOfHomes == 0 && self.editing) {
+                [self.tableView setEditing:!self.editing animated:YES];
+                self.navigationItem.rightBarButtonItem.enabled =!(noOfHomes > 0);
+                //        if (noOfHomes == 0) {
+                //            self.navigationItem.leftBarButtonItem = self.editButtonItem;
+                //            self.navigationItem.leftBarButtonItem.enabled = NO;
+                //        }
+                
+            }
+            if (noOfHomes == 0) {
+                [self.tableView setEditing:NO animated:YES];
+                [self setEditing:NO animated:YES];
+                
+            }
+            
+            return noOfHomes;
+            break;
+        }
+        case  HomeListSectionAddAccessory:
+        {
+            return MAX(1, 1);
+            break;
+        }
+            
+        default:
+            break;
     }
-    if (noOfHomes == 0) {
-        [self.tableView setEditing:NO animated:YES];
-        [self setEditing:NO animated:YES];
-
-    }
-
-    return noOfHomes;
+    return 0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PRINT_CONSOLE_LOG(nil)
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeList" forIndexPath:indexPath];
+    NSString *reuseIdentifier;
+    switch (indexPath.section) {
+        case HomeListSectionHomes:
+            reuseIdentifier = HOME_LIST_IDENTIFIER_CELL;
+            break;
+            case HomeListSectionAddAccessory:
+            reuseIdentifier = ADD_ACCESSORY_IDENTIFIER_CELL;
+            break;
+            
+        default:
+            break;
+    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    cell.textLabel.text = [self.homeManager.homes [indexPath.row]name];
+    
+    if (indexPath.section == HomeListSectionHomes) {
+        // Configure the cell...
+        cell.textLabel.text = [self.homeManager.homes [indexPath.row]name];
+        
+    } else
+    {
+    
+    }
     
     return cell;
 }
@@ -140,7 +181,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     PRINT_CONSOLE_LOG(nil)
-    return YES;
+    return indexPath.section == HomeListSectionHomes;
 }
 
 
@@ -162,46 +203,80 @@
                 
             }
         }];
-         } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
+}
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return UITableViewCellEditingStyleDelete;
+}
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+
+    if (section == HomeListSectionAddAccessory) {
+        return NSLocalizedString(@"Added accessories", nil);
+    }
+    else
+    {
+        return NSLocalizedString(@"list of homes", nil);
+    }
+    return nil;
 }
 
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-
-
-
-/*
-#pragma mark - AddHomeViewControllerDelegate
--(void)addHomeViewControllerDidSave:(AddHomeViewController *)controller
+-(NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-    PRINT_CONSOLE_LOG(nil)
-    NSLog(@"newly added home:%@",controller.homeText);
-
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+    if (section == HomeListSectionAddAccessory) {
+        return NSLocalizedString(@"On tapping Add Accessories,will scan homekit supported accessories.", nil);
+        
+    }
+    return nil;
 }
--(void) addHomeViewControllerDidCancel:(AddHomeViewController *)controller
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PRINT_CONSOLE_LOG(nil)
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == HomeListSectionAddAccessory) {
+        PRINT_CONSOLE_LOG(@"add accessory cell tapped.")
+    }
+    else
+    {
+        PRINT_CONSOLE_LOG(@"home list cell tapped")
+    }
 
 }
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
+
+
+
+
+/*
+ #pragma mark - AddHomeViewControllerDelegate
+ -(void)addHomeViewControllerDidSave:(AddHomeViewController *)controller
+ {
+ PRINT_CONSOLE_LOG(nil)
+ NSLog(@"newly added home:%@",controller.homeText);
+ 
+ [self dismissViewControllerAnimated:YES completion:nil];
+ 
+ }
+ -(void) addHomeViewControllerDidCancel:(AddHomeViewController *)controller
+ {
+ PRINT_CONSOLE_LOG(nil)
+ [self dismissViewControllerAnimated:YES completion:nil];
+ 
+ }
  */
 
 #pragma mark segue Methods for Navigation
@@ -209,15 +284,21 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:ROOM_LIST]) {
-        PRINT_CONSOLE_LOG(nil)
+        PRINT_CONSOLE_LOG(@"Room List Segue")
         RoomListViewController *roomListViewController = (RoomListViewController*)segue.destinationViewController;
         [roomListViewController setHomeManager:self.homeManager];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         HMHome *home = self.homeManager.homes[indexPath.row];
         PRINT_CONSOLE_LOG(home.name)
-
+        
         [roomListViewController setHome:self.homeManager.homes[indexPath.row]];
     }
+    if ([segue.identifier isEqualToString:ADD_ACCESSORY_SEQUE]) {
+        PRINT_CONSOLE_LOG(@"Add accessory segue")
+        AddAccessoryViewController* addAccessoryViewController = (AddAccessoryViewController*)segue.destinationViewController;
+        [addAccessoryViewController setDelegate:self];
+        
+     }
 }
 
 -(void)showAlert
@@ -248,7 +329,7 @@
             [self refreshTable];
         }
         NSLog(@"added string :%@",[trimmedName length] > 0? trimmedName:@"Could not add");
- }];
+    }];
     
     [alertController addAction:cancel];
     [alertController addAction:addNewObject];
@@ -344,7 +425,7 @@
     [self.tableView reloadData];
 }
 -(void)addNewHome:(NSString*)homeName {
-   __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     
     [self.homeManager addHomeWithName:homeName completionHandler:^(HMHome *home, NSError *error)  {
@@ -354,28 +435,39 @@
             return ;
         }
         [weakSelf refreshTable];
-
-         NSLog(@"successfully found home");
-        /*
-        [weakSelf.home addRoomWithName:weakSelf.roomName completionHandler:^(HMRoom *room, NSError *error) {
-            if (error !=nil) {
-                NSLog(@"Failed to add a room....");
-            }
-            else {
-                weakSelf.room = room;
-                NSLog(@"Successfully added a room....");
-                [weakSelf.accessoryBrowser startSearchingForNewAccessories];
-                NSLog(@"Discovering accessories now...");
-                
-                
-            }
-        }];
         
-        */
+        NSLog(@"successfully found home");
+        /*
+         [weakSelf.home addRoomWithName:weakSelf.roomName completionHandler:^(HMRoom *room, NSError *error) {
+         if (error !=nil) {
+         NSLog(@"Failed to add a room....");
+         }
+         else {
+         weakSelf.room = room;
+         NSLog(@"Successfully added a room....");
+         [weakSelf.accessoryBrowser startSearchingForNewAccessories];
+         NSLog(@"Discovering accessories now...");
+         
+         
+         }
+         }];
+         
+         */
         
         
     }];
-
+    
 }
+
+
+ #pragma mark - AddHomeViewControllerDelegate
+
+ -(void) AddAccessoryViewControllerDidCancel:(AddAccessoryViewController *)controller
+ {
+ PRINT_CONSOLE_LOG(nil)
+ [self dismissViewControllerAnimated:YES completion:nil];
+ 
+ }
+
 
 @end

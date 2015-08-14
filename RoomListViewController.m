@@ -13,9 +13,7 @@
 
 #pragma mark - view LifeCycle 
 -(void)viewDidLoad {
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    NSInteger roomsCount = [[self.homeManager homes]count];
-    self.navigationItem.leftBarButtonItem.enabled = !(roomsCount == 0);
+    
     [self.navigationItem setTitle:self.home.name];
     PRINT_CONSOLE_LOG(nil)
     PRINT_CONSOLE_LOG(self.home.name);
@@ -53,17 +51,11 @@
     // Return the number of rows in the section.
     NSLog(@"rooms count:%lu, editing :%d",(unsigned long)[self.home.rooms count],self.editing);
     NSInteger noOfRooms = [self.home.rooms count];
-    self.navigationItem.leftBarButtonItem.enabled = (noOfRooms > 0);
-    self.editButtonItem.enabled = (noOfRooms > 0);
-    
     
     if (noOfRooms == 0 && self.editing) {
         [self.tableView setEditing:!self.editing animated:YES];
         self.navigationItem.rightBarButtonItem.enabled =!(noOfRooms > 0);
-        //        if (noOfHomes == 0) {
-        //            self.navigationItem.leftBarButtonItem = self.editButtonItem;
-        //            self.navigationItem.leftBarButtonItem.enabled = NO;
-        //        }
+        
         
     }
     if (noOfRooms == 0) {
@@ -187,4 +179,6 @@
         NSLog(@"successfully found room");
     }];
 }
+#pragma mark -- Add Zones.
+
 @end

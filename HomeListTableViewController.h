@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <HomeKit/HomeKit.h>
-
+#import "AddAccessoryViewController.h"
 //#import "AddHomeViewController.h"
 
-@interface HomeListTableViewController : UITableViewController<HMAccessoryBrowserDelegate,HMHomeManagerDelegate/*AddHomeViewControllerDelegate*/>
+@interface HomeListTableViewController : UITableViewController<HMAccessoryBrowserDelegate,HMHomeManagerDelegate,AddAccessoryViewControllerDelegate/*AddHomeViewControllerDelegate*/>
 
 @end
