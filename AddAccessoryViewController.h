@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <HomeKit/HomeKit.h>
+
 @class AddAccessoryViewController;
 @protocol AddAccessoryViewControllerDelegate <NSObject>
 
@@ -15,7 +17,7 @@
 
 @end
 
-@interface AddAccessoryViewController : UIViewController
+@interface AddAccessoryViewController : UIViewController<HMAccessoryBrowserDelegate>
 @property(nonatomic,weak)id <AddAccessoryViewControllerDelegate>delegate;
 - (IBAction)cancel:(id)sender;
 

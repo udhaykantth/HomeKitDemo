@@ -13,12 +13,17 @@
  
 
 //AddHomeViewController Constants
-#define ADD_HOME @"AddHome"
-#define ROOM_LIST @"RoomList"
-#define ADD_ACCESSORY_SEQUE @"AddAccessorySegue"
+#define ADD_HOME                    @"AddHome"
+#define ROOM_LIST                   @"RoomList"
+#define ADD_ACCESSORY_SEQUE         @"AddAccessorySegue"
+#define ACCESSORY_SEGUE             @"AccessorySegue"
 
-#define HOME_LIST_IDENTIFIER_CELL @"HomeList"
+#define HOME_LIST_IDENTIFIER_CELL     @"HomeList"
 #define ADD_ACCESSORY_IDENTIFIER_CELL @"AddAccessoryCell"
+#define DEFAULT_ACCESSORY_CELL        @"DefaultAccessoryCell"
+#define DEFAULT_ACCESSORY_CELL_TEXT   @"searching..."
+#define NO_FOUND_ACCESSORY_CELL_TEXT  @"No Discovered Accessories"
+#define HEADER_SECTION_TITLE          @"select accessory"
 
 //Print Logs
 #ifdef DEBUG
