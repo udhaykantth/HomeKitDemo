@@ -12,6 +12,7 @@
 
 
 @interface AddAccessoryViewController : UIViewController<HMAccessoryBrowserDelegate>
+@property(nonatomic,strong)HMHomeManager *homeManager;
 - (IBAction)cancel:(id)sender;
 
 

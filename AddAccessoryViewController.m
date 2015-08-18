@@ -8,6 +8,7 @@
 
 #import "AddAccessoryViewController.h"
 #import "Constants.h"
+#import "AccessoryViewController.h"
 
 @interface AddAccessoryViewController()
 @property (weak, nonatomic) IBOutlet UITableView *accessoryTableView;
@@ -164,6 +165,21 @@
     [self performSegueWithIdentifier:ACCESSORY_SEGUE sender:self];
 
 }
+#pragma mark -- navigation segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:ACCESSORY_SEGUE]) {
+        PRINT_CONSOLE_LOG(@"Accessory Segue")
+        AccessoryViewController *accessoryVC = (AccessoryViewController*
+                                                )segue.destinationViewController;
+        NSIndexPath *indexPath = [self.accessoryTableView indexPathForSelectedRow];
+        HMAccessory* foundAccessory = self.listedAccessories[indexPath.row];
+        
+        [accessoryVC setHomeManager:self.homeManager];
+        [accessoryVC setAccessory:foundAccessory];
+       
+    }
 
+}
 
 @end

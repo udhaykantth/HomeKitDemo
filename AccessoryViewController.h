@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <HomeKit/HomeKit.h>
 
 @interface AccessoryViewController : UIViewController
+@property(nonatomic,strong)HMAccessory  *accessory;
+@property(nonatomic,strong)HMHome *home;
+@property (nonatomic,strong)HMHomeManager *homeManager;
+
+
 
 @end
