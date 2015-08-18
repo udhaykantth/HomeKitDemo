@@ -11,6 +11,6 @@
 #import "AddAccessoryViewController.h"
 //#import "AddHomeViewController.h"
 
-@interface HomeListTableViewController : UITableViewController<HMAccessoryBrowserDelegate,HMHomeManagerDelegate,AddAccessoryViewControllerDelegate/*AddHomeViewControllerDelegate*/>
+@interface HomeListTableViewController : UITableViewController<HMAccessoryBrowserDelegate,HMHomeManagerDelegate/*AddHomeViewControllerDelegate*/>
 
 @end

@@ -15,6 +15,7 @@
 @end
 
 @implementation AccessoryViewController
+
 - (IBAction)identifyAccessory:(id)sender {
     PRINT_CONSOLE_LOG(nil)
 }

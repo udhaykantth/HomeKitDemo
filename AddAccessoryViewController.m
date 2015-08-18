@@ -58,10 +58,8 @@
 #pragma mark -- AddAccessoryViewControllerDelegate
 - (IBAction)cancel:(id)sender {
     PRINT_CONSOLE_LOG(nil)
-    if ([self.delegate respondsToSelector:@selector(AddAccessoryViewControllerDidCancel:)]) {
-        
-        [self.delegate AddAccessoryViewControllerDidCancel:self];
-    }
+    [self stopBrowser];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark -- UITableView Datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -115,7 +113,7 @@
     PRINT_CONSOLE_LOG(nil)
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self stopBrowser];
-    [self configureAccessory];
+        // [self configureAccessory];
 
 }
 #pragma mark -- HMAccessoryBrowserDelegate

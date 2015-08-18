@@ -296,8 +296,7 @@ typedef NS_ENUM(NSUInteger, HomeListSection) {
     if ([segue.identifier isEqualToString:ADD_ACCESSORY_SEQUE]) {
         PRINT_CONSOLE_LOG(@"Add accessory segue")
         AddAccessoryViewController* addAccessoryViewController = (AddAccessoryViewController*)segue.destinationViewController;
-        [addAccessoryViewController setDelegate:self];
-        
+            //send any data to next VC..
      }
 }
 
@@ -460,14 +459,8 @@ typedef NS_ENUM(NSUInteger, HomeListSection) {
 }
 
 
- #pragma mark - AddHomeViewControllerDelegate
 
- -(void) AddAccessoryViewControllerDidCancel:(AddAccessoryViewController *)controller
- {
- PRINT_CONSOLE_LOG(nil)
- [self dismissViewControllerAnimated:YES completion:nil];
- 
- }
+
 
 
 @end

@@ -22,7 +22,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="g7a-MV-wSo">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Yde-hM-bRT" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="Yde-hM-bRT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="vWZ-Yu-C42">
@@ -41,7 +41,7 @@
         <!--HomeListViewController-->
         <scene sceneID="Ydb-4G-wLa">
             <objects>
-                <tableViewController id="HPk-Rz-36F" userLabel="HomeListViewController" customClass="HomeListTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HomeListStoryboard" id="HPk-Rz-36F" userLabel="HomeListViewController" customClass="HomeListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="xSW-wC-kiE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,7 +74,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="qxh-FH-24v" kind="modal" identifier="AddAccessorySegue" id="V0F-xD-9Dv"/>
+                                    <segue destination="Wle-gj-PY4" kind="modal" identifier="AddAccessorySegue" id="V0F-xD-9Dv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -104,37 +104,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" id="2Fd-dk-RDB">
-                                <rect key="frame" x="0.0" y="15" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Add Accessory" id="AH5-kx-duH">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VF8-EE-bv4">
-                                            <connections>
-                                                <action selector="cancel:" destination="qxh-FH-24v" id="xwr-Qm-Czt"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ZnA-H2-GAz">
                                 <rect key="frame" x="0.0" y="261" width="325" height="307"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="AddAccessoryCell" id="wMk-Wk-2Vj">
-                                        <rect key="frame" x="0.0" y="50" width="325" height="44"/>
+                                        <rect key="frame" x="0.0" y="114" width="325" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wMk-Wk-2Vj" id="Ip5-s8-1gZ">
                                             <rect key="frame" x="0.0" y="0.0" width="258" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="MlM-aT-UFF" kind="push" identifier="AccessorySegue" id="O5S-XJ-OEP"/>
+                                            <segue destination="MlM-aT-UFF" kind="push" identifier="AccessorySegue" id="7zr-fd-zVS"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DefaultAccessoryCell" id="HUR-fW-kLK">
-                                        <rect key="frame" x="0.0" y="94" width="325" height="44"/>
+                                        <rect key="frame" x="0.0" y="158" width="325" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HUR-fW-kLK" id="7jD-dM-TrP">
                                             <rect key="frame" x="0.0" y="0.0" width="325" height="43"/>
@@ -169,6 +156,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="VDM-YP-eGh">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gX0-WQ-w12">
+                            <connections>
+                                <action selector="cancel:" destination="qxh-FH-24v" id="p5H-4f-aac"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="accessoryTableView" destination="ZnA-H2-GAz" id="ges-a5-MyB"/>
                         <outlet property="activityIndicator" destination="P0k-oa-8v5" id="afA-KL-Jef"/>
@@ -176,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVz-Il-nHF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="534" y="1574"/>
+            <point key="canvasLocation" x="1066" y="1574"/>
         </scene>
         <!--Accessory View Controller-->
         <scene sceneID="2Ag-ZY-a2q">
@@ -186,13 +180,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" id="8Cq-Zh-siq">
-                                <rect key="frame" x="-5" y="0.0" width="325" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="QAm-iw-3jJ"/>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="59y-5q-y4K">
                                 <rect key="frame" x="27" y="95" width="272" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -265,7 +252,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdj-KC-gOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="1609"/>
+            <point key="canvasLocation" x="1432" y="1609"/>
         </scene>
         <!--Navigation-->
         <scene sceneID="IhR-NE-Jn7">
@@ -286,69 +273,23 @@
             </objects>
             <point key="canvasLocation" x="502" y="865"/>
         </scene>
-        <!--AddHomeViewController-->
-        <scene sceneID="wbo-Tr-LI0">
-            <objects>
-                <viewController title="Add Home" id="Ubh-aS-dot" userLabel="AddHomeViewController" customClass="AddHomeViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CVL-ve-Iqo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" id="4a8-j1-JFN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Add Home" id="gAt-Hg-zBx">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0Je-l8-Mw3">
-                                            <connections>
-                                                <action selector="cancel:" destination="Ubh-aS-dot" id="Pel-03-3Fl"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="IDv-5b-MB8">
-                                            <connections>
-                                                <action selector="done:" destination="Ubh-aS-dot" id="r0M-aC-A5Q"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter New Home" minimumFontSize="17" id="EtJ-aa-xZ1">
-                                <rect key="frame" x="52" y="96" width="216" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="zuC-M3-iMb"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="homeNameTxtField" destination="EtJ-aa-xZ1" id="wZO-qQ-tLl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7WD-1X-KkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1282" y="854"/>
-        </scene>
         <!--Navigation Controller-->
-        <scene sceneID="kqp-IX-XG3">
+        <scene sceneID="CJ3-Qo-0QH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T1N-xy-7ia" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wle-gj-PY4" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="exl-78-wSM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uHs-ZM-8MS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="MlM-aT-UFF" kind="relationship" relationship="rootViewController" id="NmB-RC-aWE"/>
+                        <segue destination="qxh-FH-24v" kind="relationship" relationship="rootViewController" id="Hze-FS-dJL"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZK9-Io-4Id" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4cV-l1-HWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="542" y="2265"/>
+            <point key="canvasLocation" x="534" y="1574"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -356,7 +297,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="O5S-XJ-OEP"/>
-    </inferredMetricsTieBreakers>
 </document>
