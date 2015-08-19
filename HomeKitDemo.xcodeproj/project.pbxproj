@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A22F8D81B84595F0045CA33 /* AccessoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A22F8D71B84595F0045CA33 /* AccessoryListViewController.m */; };
+		6A22F8DB1B845E130045CA33 /* HomeListATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A22F8DA1B845E130045CA33 /* HomeListATableViewController.m */; };
+		6A22F8E21B8481250045CA33 /* UITableView+CustomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A22F8E11B8481250045CA33 /* UITableView+CustomMessage.m */; };
+		6A22F8E61B849EAF0045CA33 /* AccessoryServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A22F8E51B849EAF0045CA33 /* AccessoryServiceCell.m */; };
 		6A77800B1B610ACF00EB5C26 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */; };
 		6A9B56A71B733279007B6F4E /* HomeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9B56A61B733279007B6F4E /* HomeStore.m */; };
 		6AC143021B7A1D5200C448B7 /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC143011B7A1D5200C448B7 /* RoomListViewController.m */; };
@@ -14,7 +18,6 @@
 		6AF5FE381B7E1303005AAAFC /* AddAccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF5FE371B7E1303005AAAFC /* AddAccessoryViewController.m */; };
 		6AF8E1EA1B58D32500704778 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1E91B58D32500704778 /* main.m */; };
 		6AF8E1ED1B58D32500704778 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1EC1B58D32500704778 /* AppDelegate.m */; };
-		6AF8E1F01B58D32500704778 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8E1EF1B58D32500704778 /* ViewController.m */; };
 		6AF8E1F31B58D32500704778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AF8E1F11B58D32500704778 /* Main.storyboard */; };
 		6AF8E1F51B58D32500704778 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF8E1F41B58D32500704778 /* Images.xcassets */; };
 		6AF8E1F81B58D32500704778 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF8E1F61B58D32500704778 /* LaunchScreen.xib */; };
@@ -35,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A22F8D61B84595F0045CA33 /* AccessoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryListViewController.h; sourceTree = "<group>"; };
+		6A22F8D71B84595F0045CA33 /* AccessoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryListViewController.m; sourceTree = "<group>"; };
+		6A22F8D91B845E130045CA33 /* HomeListATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListATableViewController.h; sourceTree = "<group>"; };
+		6A22F8DA1B845E130045CA33 /* HomeListATableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListATableViewController.m; sourceTree = "<group>"; };
+		6A22F8E01B8481250045CA33 /* UITableView+CustomMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CustomMessage.h"; sourceTree = "<group>"; };
+		6A22F8E11B8481250045CA33 /* UITableView+CustomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CustomMessage.m"; sourceTree = "<group>"; };
+		6A22F8E41B849EAF0045CA33 /* AccessoryServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryServiceCell.h; sourceTree = "<group>"; };
+		6A22F8E51B849EAF0045CA33 /* AccessoryServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryServiceCell.m; sourceTree = "<group>"; };
 		6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		6A9B56A51B733279007B6F4E /* HomeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeStore.h; sourceTree = "<group>"; };
 		6A9B56A61B733279007B6F4E /* HomeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeStore.m; sourceTree = "<group>"; };
@@ -49,8 +60,6 @@
 		6AF8E1E91B58D32500704778 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6AF8E1EB1B58D32500704778 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6AF8E1EC1B58D32500704778 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6AF8E1EE1B58D32500704778 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6AF8E1EF1B58D32500704778 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6AF8E1F21B58D32500704778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6AF8E1F41B58D32500704778 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6AF8E1F71B58D32500704778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -86,6 +95,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A22F8DC1B84803E0045CA33 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				6A22F8E01B8481250045CA33 /* UITableView+CustomMessage.h */,
+				6A22F8E11B8481250045CA33 /* UITableView+CustomMessage.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		6A22F8E31B849E760045CA33 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6A22F8E41B849EAF0045CA33 /* AccessoryServiceCell.h */,
+				6A22F8E51B849EAF0045CA33 /* AccessoryServiceCell.m */,
+			);
+			name = "Custom Cell";
+			sourceTree = "<group>";
+		};
 		6A7CBAEF1B835D440093686D /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +123,8 @@
 		6AF8E1DB1B58D32500704778 = {
 			isa = PBXGroup;
 			children = (
+				6A22F8E31B849E760045CA33 /* Custom Cell */,
+				6A22F8DC1B84803E0045CA33 /* Categories */,
 				6A7CBAEF1B835D440093686D /* Images */,
 				6AFFBC161B7227B600DD7BE9 /* Home Modal */,
 				6AFFBC141B72002D00DD7BE9 /* Constants */,
@@ -123,8 +152,6 @@
 				6AF8E20F1B58D44B00704778 /* HomeKitDemo.entitlements */,
 				6AF8E1EB1B58D32500704778 /* AppDelegate.h */,
 				6AF8E1EC1B58D32500704778 /* AppDelegate.m */,
-				6AF8E1EE1B58D32500704778 /* ViewController.h */,
-				6AF8E1EF1B58D32500704778 /* ViewController.m */,
 				6AF8E1F11B58D32500704778 /* Main.storyboard */,
 				6AF8E1F41B58D32500704778 /* Images.xcassets */,
 				6AF8E1F61B58D32500704778 /* LaunchScreen.xib */,
@@ -162,6 +189,10 @@
 		6AFFBC0A1B71ECE500DD7BE9 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6A22F8D91B845E130045CA33 /* HomeListATableViewController.h */,
+				6A22F8DA1B845E130045CA33 /* HomeListATableViewController.m */,
+				6A22F8D61B84595F0045CA33 /* AccessoryListViewController.h */,
+				6A22F8D71B84595F0045CA33 /* AccessoryListViewController.m */,
 				6AFFBC0E1B71ED9900DD7BE9 /* HomeListTableViewController.h */,
 				6AFFBC0F1B71ED9900DD7BE9 /* HomeListTableViewController.m */,
 				6AFFBC111B71EDBF00DD7BE9 /* AddHomeViewController.h */,
@@ -303,13 +334,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ACC01C01B82134B00EEA498 /* AccessoryViewController.m in Sources */,
-				6AF8E1F01B58D32500704778 /* ViewController.m in Sources */,
 				6AC143021B7A1D5200C448B7 /* RoomListViewController.m in Sources */,
 				6AF8E1ED1B58D32500704778 /* AppDelegate.m in Sources */,
 				6AF5FE381B7E1303005AAAFC /* AddAccessoryViewController.m in Sources */,
+				6A22F8D81B84595F0045CA33 /* AccessoryListViewController.m in Sources */,
 				6AF8E1EA1B58D32500704778 /* main.m in Sources */,
 				6AFFBC131B71EDBF00DD7BE9 /* AddHomeViewController.m in Sources */,
 				6A9B56A71B733279007B6F4E /* HomeStore.m in Sources */,
+				6A22F8DB1B845E130045CA33 /* HomeListATableViewController.m in Sources */,
+				6A22F8E21B8481250045CA33 /* UITableView+CustomMessage.m in Sources */,
+				6A22F8E61B849EAF0045CA33 /* AccessoryServiceCell.m in Sources */,
 				6AFFBC101B71ED9900DD7BE9 /* HomeListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

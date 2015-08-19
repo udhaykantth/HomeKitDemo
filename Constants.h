@@ -24,6 +24,9 @@
 #define DEFAULT_ACCESSORY_CELL_TEXT   @"searching..."
 #define NO_FOUND_ACCESSORY_CELL_TEXT  @"No Discovered Accessories"
 #define HEADER_SECTION_TITLE          @"select accessory"
+#define HOME_LIST_A_IDENTIFIER_CELL   @"HomeListA"
+#define ACCESSORY_SERVICE_SEGUE       @"AccessoryServiceSegue"
+#define ACCESSORY_SERVICE_CELL       @"AccessoryServiceCell"
 
 //Print Logs
 #ifdef DEBUG
