@@ -11,6 +11,7 @@
 		6A22F8DB1B845E130045CA33 /* HomeListATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A22F8DA1B845E130045CA33 /* HomeListATableViewController.m */; };
 		6A22F8E21B8481250045CA33 /* UITableView+CustomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A22F8E11B8481250045CA33 /* UITableView+CustomMessage.m */; };
 		6A22F8E61B849EAF0045CA33 /* AccessoryServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A22F8E51B849EAF0045CA33 /* AccessoryServiceCell.m */; };
+		6A76675D1B8609A200C9BC16 /* HMService+ServiceTypeConversionString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A76675C1B8609A200C9BC16 /* HMService+ServiceTypeConversionString.m */; };
 		6A77800B1B610ACF00EB5C26 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */; };
 		6A9B56A71B733279007B6F4E /* HomeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9B56A61B733279007B6F4E /* HomeStore.m */; };
 		6AC143021B7A1D5200C448B7 /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC143011B7A1D5200C448B7 /* RoomListViewController.m */; };
@@ -46,6 +47,8 @@
 		6A22F8E11B8481250045CA33 /* UITableView+CustomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CustomMessage.m"; sourceTree = "<group>"; };
 		6A22F8E41B849EAF0045CA33 /* AccessoryServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryServiceCell.h; sourceTree = "<group>"; };
 		6A22F8E51B849EAF0045CA33 /* AccessoryServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryServiceCell.m; sourceTree = "<group>"; };
+		6A76675B1B8609A200C9BC16 /* HMService+ServiceTypeConversionString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HMService+ServiceTypeConversionString.h"; sourceTree = "<group>"; };
+		6A76675C1B8609A200C9BC16 /* HMService+ServiceTypeConversionString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HMService+ServiceTypeConversionString.m"; sourceTree = "<group>"; };
 		6A77800A1B610ACF00EB5C26 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		6A9B56A51B733279007B6F4E /* HomeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeStore.h; sourceTree = "<group>"; };
 		6A9B56A61B733279007B6F4E /* HomeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeStore.m; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 			children = (
 				6A22F8E01B8481250045CA33 /* UITableView+CustomMessage.h */,
 				6A22F8E11B8481250045CA33 /* UITableView+CustomMessage.m */,
+				6A76675B1B8609A200C9BC16 /* HMService+ServiceTypeConversionString.h */,
+				6A76675C1B8609A200C9BC16 /* HMService+ServiceTypeConversionString.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				6AF5FE381B7E1303005AAAFC /* AddAccessoryViewController.m in Sources */,
 				6A22F8D81B84595F0045CA33 /* AccessoryListViewController.m in Sources */,
 				6AF8E1EA1B58D32500704778 /* main.m in Sources */,
+				6A76675D1B8609A200C9BC16 /* HMService+ServiceTypeConversionString.m in Sources */,
 				6AFFBC131B71EDBF00DD7BE9 /* AddHomeViewController.m in Sources */,
 				6A9B56A71B733279007B6F4E /* HomeStore.m in Sources */,
 				6A22F8DB1B845E130045CA33 /* HomeListATableViewController.m in Sources */,

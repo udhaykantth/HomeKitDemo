@@ -11,6 +11,7 @@
 #import "AccessoryServiceCell.h"
 #import "UITableView+CustomMessage.h"
 #import <HomeKit/HomeKit.h>
+#import "HMService+ServiceTypeConversionString.h"
 
 @interface NSDictionary(SortedKeys)
 @property(nonatomic,readonly) NSArray *sortedKeys;
@@ -41,14 +42,16 @@
         //iterate all services from the all accessories present in home
     for (HMService *service in self.hkd_allServices) {
         
-        NSString *typeOfService = nil;
-        /*if ([service.serviceType isEqualToString:HMServiceTypeAccessoryInformation]) {
-            typeOfService = HMServiceTypeAccessoryInformation;
-        } else
-         */
         if([service.serviceType isEqualToString:HMServiceTypeAccessoryInformation])
             { continue;
             }
+        /*
+         NSString *typeOfService = nil;
+        if ([service.serviceType isEqualToString:HMServiceTypeAccessoryInformation]) {
+            typeOfService = HMServiceTypeAccessoryInformation;
+        } else
+        
+        
             if ([service.serviceType isEqualToString:HMServiceTypeLightbulb]) {
             typeOfService = HMServiceTypeLightbulb;
         } else if ([service.serviceType isEqualToString:HMServiceTypeSwitch]){
@@ -67,17 +70,18 @@
         else if ([service.serviceType isEqualToString:HMServiceTypeLockManagement]) {
             typeOfService = HMServiceTypeLockManagement;
         }
+        */
         
             //grab existing list or create new list to store services to respective service type
         
         
-            NSMutableArray *servicesInDictionary = serviceDictionary[typeOfService] ?: [NSMutableArray array];
+            NSMutableArray *servicesInDictionary = serviceDictionary[service.hkd_customizedServiceType] ?: [NSMutableArray array];
         
             // Add the current service to the list of matching services.
         [servicesInDictionary addObject:service];
         
             // Reset the existing services in the dictionary.
-        serviceDictionary[typeOfService] = servicesInDictionary;
+        serviceDictionary[service.hkd_customizedServiceType] = servicesInDictionary;
     }
     return [NSDictionary dictionaryWithDictionary:serviceDictionary];
 }
